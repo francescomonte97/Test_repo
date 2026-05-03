@@ -81,3 +81,186 @@ if (img) {
   window.addEventListener('resize', updateScrollProgress);
   document.addEventListener('DOMContentLoaded', updateScrollProgress);
 })();
+
+
+// Home feature cards: animate each SVG when it enters the viewport
+const featureCards = document.querySelectorAll('.features-list .feature-card');
+
+if (featureCards.length && 'IntersectionObserver' in window) {
+  const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const card = entry.target;
+
+      card.classList.remove('is-in-view');
+
+      requestAnimationFrame(() => {
+        card.classList.add('is-in-view');
+      });
+    });
+  }, {
+    threshold: 0.45,
+    rootMargin: '0px 0px -12% 0px'
+  });
+
+  featureCards.forEach((card) => featureObserver.observe(card));
+}
+
+
+const homeFeatureCards = document.querySelectorAll('.features-list .feature-card');
+
+if (homeFeatureCards.length && 'IntersectionObserver' in window) {
+  const featureRevealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const card = entry.target;
+      card.classList.add('is-in-view');
+
+      card.addEventListener('animationend', () => {
+        card.classList.add('has-revealed');
+        card.classList.remove('is-in-view');
+      }, { once: true });
+
+      observer.unobserve(card);
+    });
+  }, {
+    threshold: 0.36,
+    rootMargin: '0px 0px -14% 0px'
+  });
+
+  homeFeatureCards.forEach((card) => featureRevealObserver.observe(card));
+}
+
+// Animated navbar active pill between pages
+const desktopNav = document.querySelector('.desktop-nav');
+
+if (desktopNav) {
+  const navLinks = Array.from(desktopNav.querySelectorAll('a'));
+  const currentPath = window.location.pathname === '/index.html' ? '/' : window.location.pathname;
+
+  const normalizeHref = (href) => {
+    const url = new URL(href, window.location.origin);
+    return url.pathname === '/index.html' ? '/' : url.pathname;
+  };
+
+  const currentLink =
+    navLinks.find((link) => normalizeHref(link.href) === currentPath) || navLinks[0];
+
+  const previousPath = sessionStorage.getItem('previousNavPath');
+  const previousLink = navLinks.find((link) => normalizeHref(link.href) === previousPath);
+
+  const setPillToLink = (link) => {
+    if (!link) return;
+
+    const navRect = desktopNav.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+
+    desktopNav.style.setProperty('--nav-pill-width', `${linkRect.width}px`);
+    desktopNav.style.setProperty('--nav-pill-height', `${linkRect.height}px`);
+    desktopNav.style.setProperty('--nav-pill-x', `${linkRect.left - navRect.left}px`);
+    desktopNav.style.setProperty('--nav-pill-y', `${linkRect.top - navRect.top}px`);
+  };
+
+  setPillToLink(previousLink || currentLink);
+  desktopNav.classList.add('nav-pill-ready');
+
+  requestAnimationFrame(() => {
+    desktopNav.classList.add('nav-pill-animate');
+    setPillToLink(currentLink);
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('previousNavPath', currentPath);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    desktopNav.classList.remove('nav-pill-animate');
+    setPillToLink(currentLink);
+
+    requestAnimationFrame(() => {
+      desktopNav.classList.add('nav-pill-animate');
+    });
+  });
+}
+
+
+// Home feature cards: let the click feedback finish before navigation
+const homeFeatureLinks = document.querySelectorAll('.features-list .feature-card');
+
+homeFeatureLinks.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    const href = card.getAttribute('href');
+    const isModifiedClick =
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0;
+
+    if (!href || isModifiedClick || card.target === '_blank') return;
+
+    event.preventDefault();
+    card.classList.remove('is-clicking');
+
+    requestAnimationFrame(() => {
+      card.classList.add('is-clicking');
+    });
+
+    const goToPage = () => {
+      window.location.href = href;
+    };
+
+    card.addEventListener('animationend', goToPage, { once: true });
+
+    window.setTimeout(goToPage, 360);
+  });
+});
+
+
+// CTA buttons: shine first, navigate after the effect
+const shineCtaLinks = document.querySelectorAll('a.btn-primary, a.activity-btn');
+
+shineCtaLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    const isModifiedClick =
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0;
+
+    if (!href || isModifiedClick || link.target === '_blank') return;
+
+    event.preventDefault();
+    link.classList.remove('is-shining');
+
+    requestAnimationFrame(() => {
+      link.classList.add('is-shining');
+    });
+
+    let hasNavigated = false;
+
+    const goToPage = () => {
+      if (hasNavigated) return;
+      hasNavigated = true;
+      window.location.href = href;
+    };
+
+    link.addEventListener(
+      'animationend',
+      (animationEvent) => {
+        if (animationEvent.animationName === 'ctaButtonShineSweep') {
+          goToPage();
+        }
+      },
+      { once: true }
+    );
+
+    window.setTimeout(goToPage, 680);
+  });
+});
