@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Attività | Canavese Comics</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
   <link rel="alternate icon" href="/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,31 +16,22 @@
       <img src="assets/vectors/logo.svg" alt="Canavese Comics logo" class="brand-logo">
     </a>
 
-    <button class="menu" aria-expanded="false" aria-label="Menu principale">
-      <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-        <path class="line line2" d="M 20,50 H 80" />
-        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-      </svg>
-    </button>
+    <nav class="desktop-nav" aria-label="Navigazione principale">
+      <a href="/">Home</a>
+      <a href="/biglietti.html">Biglietti</a>
+      <a href="/info.html">Informazioni</a>
+      <a href="/activity.html">Attività</a>
+      <a href="/about.html">Chi siamo</a>
+    </nav>
 
     <div class="scroll-progress">
       <div class="scroll-progress__bar"></div>
     </div>
   </header>
 
-  <nav class="menu-overlay" id="overlay">
-    <a href="/">Home</a>
-    <a href="/evento">Eventi</a>
-    <a href="/info.html">Informazioni</a>
-    <a href="/activity.html">Attività</a>
-    <a href="/about.html">Chi siamo</a>
-  </nav>
-
   <main class="activity-page">
     <section class="activity-hero" id="attivita">
       <h1>Attività</h1>
-
       <p class="activity-intro">
         Al Canavese Comics non si viene solo a guardare.<br>
         Ogni area è pensata per coinvolgerti direttamente:<br>
@@ -55,7 +46,7 @@
         <img src="assets/graphics/activity-1.svg" alt="Film e conferenze">
         <div class="activity-item__content">
           <h2>Film e conferenze</h2>
-          <p>Proiezioni, talk e incontri dedicati alla cultura pop, al fumetto e all’immaginario.</p>
+          <p>Proiezioni, talk e incontri dedicati alla cultura pop, al fumetto e all’animazione. Uno spazio per approfondire e ascoltare chi queste storie le crea..</p>
         </div>
       </article>
 
@@ -63,7 +54,7 @@
         <img src="assets/graphics/activity-2.svg" alt="Case editrici e artisti">
         <div class="activity-item__content">
           <h2>Case editrici<br>e artisti</h2>
-          <p>Fumetto e illustrazione a portata di mano, tra incontri, portfolio e opere originali.</p>
+          <p>Fumetto e illustrazione a portata di mano. Incontra autori, sfoglia produzioni indipendenti e scopri il lavoro di chi dà vita a personaggi e mondi fantastici.</p>
         </div>
       </article>
 
@@ -71,7 +62,7 @@
         <img src="assets/graphics/activity-3.svg" alt="Rievocazioni storiche">
         <div class="activity-item__content">
           <h2>Rievocazioni<br>storiche</h2>
-          <p>Accampamenti, combattimenti e racconti storici che prendono vita davanti ai tuoi occhi.</p>
+          <p>Accampamenti, armature e combattimenti che prendono vita davanti ai tuoi occhi. Spettacolo, storia e adrenalina.</p>
         </div>
       </article>
 
@@ -80,7 +71,7 @@
   <img src="assets/graphics/activity-4.svg" alt="Cosplay">
   <div class="activity-item__content">
     <h2>Cosplay</h2>
-    <p>Personaggi dai mondi nerd che prendono vita tra performance e sfilate.</p>
+    <p>Personaggi da infiniti mondi che prendono vita. Professionisti e debuttanti incarnano i protagonisti delle storie più amate.</p>
   </div>
 </article>
 
@@ -88,14 +79,14 @@
         <img src="assets/graphics/activity-5.svg" alt="Giochi">
         <div class="activity-item__content">
           <h2>Giochi</h2>
-          <p>Numerosi tavoli animati da volontari, associazioni e giochi per tutte le età.</p>
+          <p>Numerosi tavoli animati da volontari e associazioni ludiche. Giochi di ruolo e giochi da tavolo: siediti e gioca, qualunque sia il tuo livello.</p>
         </div>
       </article>
 
       <article class="activity-item">
 <img class="activity-icon activity-icon--large" src="assets/graphics/activity-6.svg" alt="Kids">        <div class="activity-item__content">
           <h2>Kids</h2>
-          <p>Laboratori creativi, fumetto e giochi per bambini, ragazzi e famiglie.</p>
+          <p>Laboratori creativi, fumetto e giochi in famiglia. Attività guidate per intrattenere, coinvolgere e sperimentare.</p>
         </div>
       </article>
     </section>
@@ -119,7 +110,9 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <a class="footer-social" href="https://www.instagram.com/" aria-label="Instagram Canavese Comics">IG</a>
+        <a class="footer-social" href="https://www.instagram.com/canavese.comics?igsh=ejc1cXgyejVkamZu" aria-label="Instagram Canavese Comics" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/ig_icon.webp" alt="Instagram">
+        </a>
       </div>
 
       <div class="footer-center">
@@ -129,9 +122,7 @@
       <div class="footer-right">
         <p>
           Copyright © 2025<br>
-          Associazione Pinco Pallino<br>
-          P.IVA 12345678901<br>
-          Via Esempio 34, 10026 Santena (TO) Italia
+       
         </p>
       </div>
     </div>
