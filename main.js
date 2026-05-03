@@ -133,7 +133,9 @@ if (homeFeatureCards.length && 'IntersectionObserver' in window) {
   homeFeatureCards.forEach((card) => featureRevealObserver.observe(card));
 }
 
-// Animated navbar active pill between pages
+
+
+
 const desktopNav = document.querySelector('.desktop-nav');
 
 if (desktopNav) {
@@ -148,8 +150,15 @@ if (desktopNav) {
   const currentLink =
     navLinks.find((link) => normalizeHref(link.href) === currentPath) || navLinks[0];
 
+  const shouldAnimateFromPrevious = sessionStorage.getItem('navPillShouldAnimate') === '1';
   const previousPath = sessionStorage.getItem('previousNavPath');
-  const previousLink = navLinks.find((link) => normalizeHref(link.href) === previousPath);
+
+  const previousLink = shouldAnimateFromPrevious
+    ? navLinks.find((link) => normalizeHref(link.href) === previousPath)
+    : null;
+
+  sessionStorage.removeItem('navPillShouldAnimate');
+  sessionStorage.removeItem('previousNavPath');
 
   const setPillToLink = (link) => {
     if (!link) return;
@@ -166,14 +175,26 @@ if (desktopNav) {
   setPillToLink(previousLink || currentLink);
   desktopNav.classList.add('nav-pill-ready');
 
-  requestAnimationFrame(() => {
-    desktopNav.classList.add('nav-pill-animate');
+  if (previousLink && previousLink !== currentLink) {
+    requestAnimationFrame(() => {
+      desktopNav.classList.add('nav-pill-animate');
+      setPillToLink(currentLink);
+    });
+  } else {
     setPillToLink(currentLink);
-  });
+    requestAnimationFrame(() => {
+      desktopNav.classList.add('nav-pill-animate');
+    });
+  }
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      sessionStorage.setItem('previousNavPath', currentPath);
+      const nextPath = normalizeHref(link.href);
+
+      if (nextPath !== currentPath) {
+        sessionStorage.setItem('previousNavPath', currentPath);
+        sessionStorage.setItem('navPillShouldAnimate', '1');
+      }
     });
   });
 
