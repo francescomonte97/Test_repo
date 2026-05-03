@@ -136,6 +136,7 @@ if (homeFeatureCards.length && 'IntersectionObserver' in window) {
 
 
 
+// Animated navbar active pill between pages
 const desktopNav = document.querySelector('.desktop-nav');
 
 if (desktopNav) {
@@ -166,26 +167,47 @@ if (desktopNav) {
     const navRect = desktopNav.getBoundingClientRect();
     const linkRect = link.getBoundingClientRect();
 
-    desktopNav.style.setProperty('--nav-pill-width', `${linkRect.width}px`);
-    desktopNav.style.setProperty('--nav-pill-height', `${linkRect.height}px`);
-    desktopNav.style.setProperty('--nav-pill-x', `${linkRect.left - navRect.left}px`);
-    desktopNav.style.setProperty('--nav-pill-y', `${linkRect.top - navRect.top}px`);
+    desktopNav.style.setProperty('--nav-pill-width', `${Math.round(linkRect.width)}px`);
+    desktopNav.style.setProperty('--nav-pill-height', `${Math.round(linkRect.height)}px`);
+    desktopNav.style.setProperty('--nav-pill-x', `${Math.round(linkRect.left - navRect.left)}px`);
+    desktopNav.style.setProperty('--nav-pill-y', `${Math.round(linkRect.top - navRect.top)}px`);
   };
 
-  setPillToLink(previousLink || currentLink);
-  desktopNav.classList.add('nav-pill-ready');
-
-  if (previousLink && previousLink !== currentLink) {
-    requestAnimationFrame(() => {
-      desktopNav.classList.add('nav-pill-animate');
-      setPillToLink(currentLink);
-    });
-  } else {
+  const lockPillToCurrent = () => {
+    desktopNav.classList.remove('nav-pill-animate');
     setPillToLink(currentLink);
+    desktopNav.classList.add('nav-pill-ready');
+
     requestAnimationFrame(() => {
       desktopNav.classList.add('nav-pill-animate');
     });
+  };
+
+  const startPill = () => {
+    desktopNav.classList.remove('nav-pill-animate');
+    setPillToLink(previousLink || currentLink);
+    desktopNav.classList.add('nav-pill-ready');
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (previousLink && previousLink !== currentLink) {
+          desktopNav.classList.add('nav-pill-animate');
+          setPillToLink(currentLink);
+        } else {
+          setPillToLink(currentLink);
+          desktopNav.classList.add('nav-pill-animate');
+        }
+      });
+    });
+  };
+
+  startPill();
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(lockPillToCurrent);
   }
+
+  window.addEventListener('load', lockPillToCurrent);
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
@@ -198,14 +220,7 @@ if (desktopNav) {
     });
   });
 
-  window.addEventListener('resize', () => {
-    desktopNav.classList.remove('nav-pill-animate');
-    setPillToLink(currentLink);
-
-    requestAnimationFrame(() => {
-      desktopNav.classList.add('nav-pill-animate');
-    });
-  });
+  window.addEventListener('resize', lockPillToCurrent);
 }
 
 
