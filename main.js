@@ -309,3 +309,38 @@ shineCtaLinks.forEach((link) => {
     window.setTimeout(goToPage, 680);
   });
 });
+
+
+const mapButton = document.querySelector('.location-map-button');
+
+if (mapButton) {
+  mapButton.addEventListener('click', () => {
+    const mapSrc = mapButton.getAttribute('data-map-src');
+    const mapContainer = mapButton.nextElementSibling;
+
+    if (!mapSrc || !mapContainer) return;
+
+    mapButton.classList.add('is-loading');
+
+    window.setTimeout(() => {
+      mapContainer.innerHTML = `
+        <iframe
+          src="${mapSrc}"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mappa Palatenda Tavagnasco">
+        </iframe>
+      `;
+
+      mapContainer.hidden = false;
+      mapContainer.classList.add('is-opening');
+      mapButton.remove();
+
+      mapContainer.addEventListener('animationend', () => {
+        mapContainer.classList.remove('is-opening');
+        mapContainer.classList.add('is-open');
+      }, { once: true });
+    }, 160);
+  });
+}
