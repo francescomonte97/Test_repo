@@ -2,14 +2,13 @@
 <html lang="it">
 
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Canavese Comics</title>
+  <meta name="theme-color" content="#F5EE8E">
+  <meta name="author" content="Canavese Comics">
 
   <meta name="description"
-    content="Canavese Comics è un evento dedicato a giochi di ruolo, giochi da tavolo, fumetto, cosplay e cultura pop. Il 6 e 7 giugno 2026 a Tavagnasco.">
+    content="Canavese Comics 2026: il 6 e 7 giugno Tavagnasco diventa un evento dedicato a fumetti, cosplay, giochi, incontri, laboratori e cultura pop.">
 
   <meta name="robots" content="index, follow">
 
@@ -18,28 +17,84 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Canavese Comics">
   <meta property="og:description"
-    content="Il 6 e 7 giugno 2026 Tavagnasco diventa il posto in cui smetti di essere spettatore e diventi protagonista.">
+    content="Canavese Comics 2026: il 6 e 7 giugno Tavagnasco diventa un evento dedicato a fumetti, cosplay, giochi, incontri, laboratori e cultura pop.">
   <meta property="og:image" content="https://www.canavesecomics.com/assets/png/og.png">
+  <meta property="og:image:alt" content="Canavese Comics 2026 a Tavagnasco">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://www.canavesecomics.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Canavese Comics">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Canavese Comics">
   <meta name="twitter:description"
-    content="Il 6 e 7 giugno 2026 Tavagnasco diventa il posto in cui smetti di essere spettatore e diventi protagonista.">
+    content="Canavese Comics 2026: il 6 e 7 giugno Tavagnasco diventa un evento dedicato a fumetti, cosplay, giochi, incontri, laboratori e cultura pop.">
   <meta name="twitter:image" content="https://www.canavesecomics.com/assets/png/og.png">
+  <meta name="twitter:image:alt" content="Canavese Comics 2026 a Tavagnasco">
 
-  <!-- Favicons -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.canavesecomics.com/#organization",
+        "name": "Canavese Comics",
+        "url": "https://www.canavesecomics.com/",
+        "logo": "https://www.canavesecomics.com/assets/vectors/logo.svg",
+        "email": "info@canavesecomics.com",
+        "sameAs": [
+          "https://www.instagram.com/canavese.comics",
+          "https://www.facebook.com/61584932397962/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.canavesecomics.com/#website",
+        "name": "Canavese Comics",
+        "url": "https://www.canavesecomics.com/",
+        "publisher": {
+          "@id": "https://www.canavesecomics.com/#organization"
+        },
+        "inLanguage": "it-IT"
+      },
+      {
+        "@type": "Event",
+        "@id": "https://www.canavesecomics.com/#event",
+        "name": "Canavese Comics 2026",
+        "description": "Canavese Comics 2026: due giorni a Tavagnasco dedicati a fumetti, cosplay, giochi, incontri, laboratori e cultura pop.",
+        "startDate": "2026-06-06",
+        "endDate": "2026-06-07",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "url": "https://www.canavesecomics.com/",
+        "image": "https://www.canavesecomics.com/assets/png/og.png",
+        "organizer": {
+          "@id": "https://www.canavesecomics.com/#organization"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Palatenda Tavagnasco",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Via Quassolo 6",
+            "addressLocality": "Tavagnasco",
+            "addressRegion": "TO",
+            "addressCountry": "IT"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <title>Canavese Comics</title>
   <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
   <link rel="alternate icon" href="/favicon.ico" />
-
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-
 </head>
 
 <body class="page-home">
@@ -51,9 +106,8 @@
       <div class="site-loader__logo-inline" data-logo-src="assets/vectors/logo_animation.svg"></div>
     </div>
   </div>
-
+  
   <header>
-
     <a class="brand" href="/" aria-label="Canavese Comics home">
       <img src="assets/vectors/logo.svg" alt="Canavese Comics logo" class="brand-logo">
     </a>
@@ -66,249 +120,152 @@
       <a href="/about.html">Chi siamo</a>
     </nav>
 
+    
     <div class="scroll-progress">
       <div class="scroll-progress__bar"></div>
     </div>
-
   </header>
+  
+  
 
+  
   <main>
-
+    
     <!-- HERO -->
     <section class="hero">
-
       <div class="hero-card">
-
         <div class="hero-left">
-
-          <h1 class="hero-title">
-            Canavese<br>Comics
-          </h1>
-
-          <p class="hero-meta">
-            TAVAGNASCO<br>
-            6 - 7 GIUGNO 2026
-          </p>
-
+          <h1 class="hero-title">Canavese<br>Comics</h1>
+<p class="hero-meta">
+  TAVAGNASCO<br>
+  6 - 7 GIUGNO 2026
+</p>
         </div>
 
         <div class="hero-right">
-
           <picture>
             <source srcset="assets/graphics/hero-illustration.svg" type="image/svg+xml">
             <img src="assets/graphics/hero-illustration.png" alt="Illustrazione Canavese Comics">
           </picture>
 
         </div>
-
       </div>
 
       <div class="hero-description">
-
         <p>
-          Canavese Comics non è una fiera da visitare.
-          È un evento da vivere.
-          Nato dalla passione di un gruppo di giovani del territorio,
-          è pensato per chi vuole entrare dentro le storie,
-          non solo sfogliarle.
+          Canavese Comics non è una fiera da visitare. È un evento da vivere.
+          Nato dalla passione di un gruppo di giovani del territorio, è pensato per chi vuole entrare
+          dentro le storie, non solo sfogliarle.
         </p>
-
         <p>
-          Giochi di ruolo, giochi da tavolo, workshop di fumetto,
-          cosplay, scherma medievale, tiro con l’arco,
-          conferenze, proiezioni e laboratori creativi:
-          due giorni in cui ogni attività è un’esperienza diretta,
-          aperta a tutti, dai curiosi agli appassionati di lunga data.
+          Giochi di ruolo, giochi da tavolo, workshop di fumetto, cosplay, scherma medievale,
+          tiro con l’arco, conferenze e laboratori creativi: due giorni in cui ogni attività
+          è un’esperienza diretta, aperta a tutti, dai curiosi agli appassionati di lunga data.
         </p>
-
         <p>
-          Il 6 e 7 giugno,
-          Tavagnasco diventa il posto in cui smetti
-          di essere spettatore e diventi protagonista.
+          Il 6 e 7 giugno, Tavagnasco diventa il posto in cui smetti di essere spettatore e diventi protagonista.
         </p>
-
-        <p>
-          <strong>Vivi la tua storia.</strong>
-        </p>
-
-        <p>
-          È lì che succede la parte più importante:
-          <br>
-          smetti di osservare e inizi a fare!
-        </p>
-
+        <p><strong>Vivi la tua storia.</strong></p>
+        <p>È lì che succede la parte più importante:<br>smetti di osservare e inizi a fare!</p>
       </div>
-
     </section>
-
-    <!-- FEATURES -->
+    
+    
+    
     <section class="features-list" aria-label="Sezioni principali">
+      <a class="feature-card feature-card--info" id="informazioni" href="/info.html">
+  <h3>Informazioni</h3>
+  <img class="feature-card__graphic" src="assets/graphics/info-card.svg" alt="Documenti, lente e mappa">
+</a>
 
-      <a class="feature-card feature-card--info"
-        id="informazioni"
-        href="/info.html">
+    <a class="feature-card feature-card--activities" id="attivita" href="/activity.html">
+  <h3>Attività</h3>
+  <img class="feature-card__graphic" src="assets/graphics/activities-card.svg" alt="Chat, freccia e matita">
+</a>
 
-        <h3>Informazioni</h3>
-
-        <img class="feature-card__graphic"
-          src="assets/graphics/info-card.svg"
-          alt="Documenti, lente e mappa">
-
-      </a>
-
-      <a class="feature-card feature-card--activities"
-        id="attivita"
-        href="/activity.html">
-
-        <h3>Attività</h3>
-
-        <img class="feature-card__graphic"
-          src="assets/graphics/activities-card.svg"
-          alt="Chat, freccia e matita">
-
-      </a>
-
-      <a class="feature-card feature-card--about"
-        id="chi-siamo"
-        href="/about.html">
-
-        <h3>Chi siamo</h3>
-
-        <img class="feature-card__graphic"
-          src="assets/graphics/about-card.svg"
-          alt="Astronauta, fogli e stella">
-
-      </a>
-
+      <a class="feature-card feature-card--about" id="chi-siamo" href="/about.html">
+  <h3>Chi siamo</h3>
+  <img class="feature-card__graphic" src="assets/graphics/about-card.svg" alt="Astronauta, fogli e stella">
+</a>
     </section>
-
+    
+    
+    
     <!-- SPONSOR -->
-    <section class="sponsors">
+<section class="sponsors">
+  <div class="sponsors-inner">
+    
 
-      <div class="sponsors-inner">
+    <div class="sponsors-row">
+     <a class="sponsor-item sponsor-item--logo" href="https://www.aegcoop.it/" target="_blank" rel="noopener noreferrer" aria-label="AEG Coop">
+        <img src="sponsor/1.png" alt="Sponsor AEG Coop">
+      </a>
 
-        <div class="sponsors-row">
+      <a class="sponsor-item sponsor-item--logo" href="https://www.bimdorabaltea.it/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor BIM Dora Baltea">
+        <img src="sponsor/2.png" alt="Sponsor BIM Dora Baltea">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://www.asinisinasceivrea.it/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Asini Si Nasce Ivrea">
+        <img src="sponsor/3.png" alt="Sponsor Asini Si Nasce Ivrea">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://www.comune.tavagnasco.to.it/it-it/home" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Comune di Tavagnasco">
+        <img src="sponsor/4.png" alt="Sponsor Comune Di Tavagnasco">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://www.ergotech.it/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Ergotech Advanced Moulding Solutions Management">
+        <img src="sponsor/5.png" alt="Sponsor Ergotech Advanced Moulding Solutions Management">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FProlocotavagnacco%2F%3Flocale%3Dit_IT" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Pro Loco Tavagnasco">
+        <img src="sponsor/6.png" alt="Sponsor Pro Loco Tavagnasco">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://www.regione.piemonte.it/web/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Regione Piemonte">
+        <img src="sponsor/7.png" alt="Sponsor Regione Piemonte">
+      </a>
+      <a class="sponsor-item sponsor-item--logo" href="https://dataofficine.it/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Data Officine">
+        <img src="sponsor/8.png" alt="Sponsor Data Officine">
+      </a>
+    </div>
 
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.aegcoop.it/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="AEG Coop">
+    
+  </div>
 
-            <img src="sponsor/1.png" alt="Sponsor AEG Coop">
 
-          </a>
 
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.bimdorabaltea.it/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sponsor BIM Dora Baltea">
-
-            <img src="sponsor/2.png" alt="Sponsor BIM Dora Baltea">
-
-          </a>
-
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.asinisinasceivrea.it/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sponsor Asini Si Nasce Ivrea">
-
-            <img src="sponsor/3.png" alt="Sponsor Asini Si Nasce Ivrea">
-
-          </a>
-
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.comune.tavagnasco.to.it/it-it/home"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sponsor Comune di Tavagnasco">
-
-            <img src="sponsor/4.png" alt="Sponsor Comune Di Tavagnasco">
-
-          </a>
-
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.ergotech.it/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sponsor Ergotech">
-
-            <img src="sponsor/5.png" alt="Sponsor Ergotech">
-
-          </a>
-
-          <a class="sponsor-item sponsor-item--logo"
-            href="https://www.regione.piemonte.it/web/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Sponsor Regione Piemonte">
-
-            <img src="sponsor/7.png" alt="Sponsor Regione Piemonte">
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
+</section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
 
-    <div class="footer-inner">
-
-      <div class="footer-left">
-
-        <a class="footer-social"
-          href="https://www.instagram.com/canavese.comics"
-          aria-label="Instagram Canavese Comics"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          <img src="assets/icons/ig_icon.webp" alt="Instagram">
-
-        </a>
-
-      </div>
-
-      <div class="footer-center">
-
-        <a href="mailto:info@canavesecomics.com">
-          info@canavesecomics.com
-        </a>
-
-      </div>
-
-      <div class="footer-right">
-
-        <p>
-          Copyright © 2025
-        </p>
-
-      </div>
-
+    <div class="footer-left">
+      <a class="footer-social" href="https://www.instagram.com/canavese.comics?igsh=ejc1cXgyejVkamZu" aria-label="Instagram Canavese Comics" target="_blank" rel="noopener noreferrer">
+        <img src="assets/icons/ig_icon.webp" alt="Instagram">
+      </a>
+      <a class="footer-social footer-social--facebook" href="https://www.facebook.com/61584932397962/" aria-label="Facebook Canavese Comics" target="_blank" rel="noopener noreferrer">
+        <img src="assets/icons/fb_icon.webp" alt="Facebook">
+      </a>
     </div>
 
-    <div class="footer-legal">
-
-      <a href="./privacy-policy.html">
-        Privacy Policy
-      </a>
-
-      <a href="./cookie-policy.html">
-        Cookie Policy
-      </a>
-
+    <div class="footer-center">
+      <a href="mailto:info@canavesecomics.com">info@canavesecomics.com</a>
     </div>
 
-  </footer>
+    <div class="footer-right">
+      <p>
+        Copyright © 2025<br>
+       
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-legal">
+      <a href="./privacy-policy.html">Privacy Policy</a>
+      <a href="./cookie-policy.html">Cookie Policy</a>
+  </div>
+</footer>
 
   <script src="main.js"></script>
-
 </body>
+
 </html>
