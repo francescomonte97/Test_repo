@@ -74,6 +74,10 @@
       <div class="tickets-checkout__panel">
         <p class="tickets-checkout__meta">Ingresso giornaliero • QR code digitale • Accesso rapido all'evento</p>
         <div class="tickets-checkout__frame">
+          <div class="tickets-checkout__loader" id="eventbrite-widget-loader" role="status" aria-live="polite">
+            <span></span>
+            <p>Caricamento checkout</p>
+          </div>
           <div id="eventbrite-widget-container-1989163261863"></div>
           <div class="tickets-checkout__fallback" id="eventbrite-widget-fallback" hidden>
             <p class="tickets-checkout__fallback-title">Checkout non disponibile qui</p>
@@ -205,8 +209,17 @@
     (function () {
       var fallback = document.getElementById('eventbrite-widget-fallback');
       var widgetContainer = document.getElementById('eventbrite-widget-container-1989163261863');
+      var loader = document.getElementById('eventbrite-widget-loader');
+
+      var hideLoader = function () {
+        if (loader) {
+          loader.hidden = true;
+        }
+      };
 
       var showFallback = function () {
+        hideLoader();
+
         if (fallback) {
           fallback.hidden = false;
         }
@@ -231,16 +244,18 @@
         }
 
         window.EBWidgets.createWidget({
-
+            // Required
             widgetType: 'checkout',
             eventId: '1989163261863',
             iframeContainerId: 'eventbrite-widget-container-1989163261863',
 
+            // Optional
+            iframeContainerHeight: 625,  // Widget height in pixels. Defaults to a minimum of 625px if not provided
 
-            iframeContainerHeight: 625,
-
-            onOrderComplete: exampleCallback  
+            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
         });
+
+        window.setTimeout(hideLoader, 900);
       };
       script.onerror = showFallback;
       document.head.appendChild(script);
