@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F5EE8E">
+  <meta name="theme-color" content="#F8EFAF">
   <meta name="author" content="Canavese Comics">
 
   <meta name="description"
@@ -38,7 +38,7 @@
   <title>Biglietti | Canavese Comics</title>
   <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
   <link rel="alternate icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="styles.css?v=20260510-tickets" />
+  <link rel="stylesheet" href="styles.css?v=20260510-tickets-ui7" />
 </head>
 
 <body class="page-biglietti">
@@ -65,14 +65,42 @@
 
     <section class="tickets-checkout" aria-labelledby="tickets-checkout-title">
       <div class="tickets-checkout__intro">
-        <h2 id="tickets-checkout-title">Scegli la giornata e acquista il tuo biglietto</h2>
+        <div class="tickets-checkout__logo-shapes" aria-hidden="true">
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--star" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#top-star"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--triangle" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#triangle"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--diamond" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#diamond"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--drop" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#drop"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--trophy" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#trophy"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--hand" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#hand"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--bottom-star" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#bottom-star"></use>
+          </svg>
+          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--arch" viewBox="0 0 1024 984" focusable="false">
+            <use href="assets/vectors/logo.svg#arch"></use>
+          </svg>
+        </div>
+        <h2 id="tickets-checkout-title">
+          <span>entra nel Canavese Comics</span>
+        </h2>
         <div class="tickets-checkout__burst" aria-hidden="true">
           <span></span>
         </div>
       </div>
 
       <div class="tickets-checkout__panel">
-        <p class="tickets-checkout__meta">Ingresso giornaliero • QR code digitale • Accesso rapido all'evento</p>
+        <p class="tickets-checkout__badge">Ingresso giornaliero • QR code digitale • Accesso rapido all'evento</p>
         <div class="tickets-checkout__frame">
           <div class="tickets-checkout__loader" id="eventbrite-widget-loader" role="status" aria-live="polite">
             <p>Caricamento checkout</p>
@@ -243,15 +271,14 @@
         }
 
         window.EBWidgets.createWidget({
-            // Required
+
             widgetType: 'checkout',
             eventId: '1989163261863',
             iframeContainerId: 'eventbrite-widget-container-1989163261863',
 
-            // Optional
-            iframeContainerHeight: 625,  // Widget height in pixels. Defaults to a minimum of 625px if not provided
+            iframeContainerHeight: 625,  
 
-            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+            onOrderComplete: exampleCallback
         });
 
         window.setTimeout(hideLoader, 900);
@@ -260,6 +287,6 @@
       document.head.appendChild(script);
     }());
   </script>
-  <script src="main.js?v=20260510-tickets"></script>
+  <script src="main.js?v=20260510-tickets-ui7"></script>
 </body>
 </html>
