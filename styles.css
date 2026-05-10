@@ -6148,6 +6148,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
 
 .tickets-checkout__frame {
   position: relative;
+  -webkit-transform: translateZ(0);
   min-height: 625px;
   overflow: hidden;
   background: #ffffff;
@@ -6164,6 +6165,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
   display: block;
   width: 100% !important;
   max-width: 100%;
+  min-height: 625px;
   border: 0;
 }
 
@@ -6256,6 +6258,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
     max-width: 25ch;
     font-size: clamp(0.92rem, 4.55vw, 1.28rem);
     line-height: 1.14;
+    -webkit-text-size-adjust: 100%;
   }
 
   .tickets-checkout__burst {
