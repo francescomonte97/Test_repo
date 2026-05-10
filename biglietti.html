@@ -75,7 +75,7 @@
         <p class="tickets-checkout__meta">Ingresso giornaliero • QR code digitale • Accesso rapido all'evento</p>
         <div class="tickets-checkout__frame">
           <div class="tickets-checkout__loader" id="eventbrite-widget-loader" role="status" aria-live="polite">
-            <span></span>
+            <span class="tickets-checkout__spinner" aria-hidden="true"></span>
             <p>Caricamento checkout</p>
           </div>
           <div id="eventbrite-widget-container-1989163261863"></div>
@@ -244,15 +244,14 @@
         }
 
         window.EBWidgets.createWidget({
-            // Required
+
             widgetType: 'checkout',
             eventId: '1989163261863',
             iframeContainerId: 'eventbrite-widget-container-1989163261863',
 
-            // Optional
-            iframeContainerHeight: 625,  // Widget height in pixels. Defaults to a minimum of 625px if not provided
+            iframeContainerHeight: 625,  
 
-            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+            onOrderComplete: exampleCallback
         });
 
         window.setTimeout(hideLoader, 900);
