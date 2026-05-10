@@ -6072,7 +6072,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
 .tickets-checkout {
   position: relative;
   isolation: isolate;
-  width: min(100%, 960px);
+  width: min(100%, 1040px);
   margin: 0.5rem auto 2.75rem;
   padding: 0;
   color: #030303;
@@ -6149,7 +6149,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
 .tickets-checkout__frame {
   position: relative;
   -webkit-transform: translateZ(0);
-  min-height: 625px;
+  min-height: 680px;
   overflow: hidden;
   background: #ffffff;
   border: 1px solid rgba(3, 3, 3, 0.16);
@@ -6158,20 +6158,20 @@ body.page-about .desktop-nav a[href="/about.html"] {
 }
 
 .tickets-checkout__frame > div {
-  min-height: 625px;
+  min-height: 680px;
 }
 
 .tickets-checkout iframe {
   display: block;
   width: 100% !important;
   max-width: 100%;
-  min-height: 625px;
+  min-height: 680px;
   border: 0;
 }
 
 .tickets-checkout__fallback {
   display: grid;
-  min-height: 625px;
+  min-height: 680px;
   padding: clamp(1.25rem, 4vw, 2.2rem);
   place-items: center;
   text-align: center;
@@ -6199,6 +6199,40 @@ body.page-about .desktop-nav a[href="/about.html"] {
   font-size: clamp(1.25rem, 3.6vw, 2rem) !important;
   line-height: 0.98 !important;
   font-weight: 900 !important;
+  text-transform: uppercase;
+}
+
+.tickets-checkout__loader {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  min-height: 680px;
+  place-items: center;
+  align-content: center;
+  gap: 0.75rem;
+  color: rgba(3, 3, 3, 0.62);
+  background: #ffffff;
+}
+
+.tickets-checkout__loader[hidden] {
+  display: none;
+}
+
+.tickets-checkout__loader span {
+  width: 38px;
+  height: 38px;
+  border: 4px solid rgba(3, 3, 3, 0.14);
+  border-top-color: #B7337A;
+  border-radius: 50%;
+  animation: ticketsCheckoutSpin 820ms linear infinite;
+}
+
+.tickets-checkout__loader p {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -6288,8 +6322,10 @@ body.page-about .desktop-nav a[href="/about.html"] {
 
   .tickets-checkout__frame,
   .tickets-checkout__frame > div,
-  .tickets-checkout__fallback {
-    min-height: 625px;
+  .tickets-checkout__fallback,
+  .tickets-checkout iframe,
+  .tickets-checkout__loader {
+    min-height: 650px;
   }
 
   .tickets-checkout__external {
@@ -6324,10 +6360,20 @@ body.page-about .desktop-nav a[href="/about.html"] {
   }
 }
 
+@keyframes ticketsCheckoutSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tickets-checkout__burst span {
     animation: none;
     transform: translateX(122%);
+  }
+
+  .tickets-checkout__loader span {
+    animation: none;
   }
 }
 
