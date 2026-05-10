@@ -65,13 +65,14 @@
 
     <section class="tickets-checkout" aria-labelledby="tickets-checkout-title">
       <div class="tickets-checkout__intro">
-        <h2 id="tickets-checkout-title">Scegli il tuo ingresso a Canavese Comics</h2>
+        <h2 id="tickets-checkout-title">Scegli la giornata e acquista il tuo biglietto</h2>
         <div class="tickets-checkout__burst" aria-hidden="true">
           <span></span>
         </div>
       </div>
 
       <div class="tickets-checkout__panel">
+        <p class="tickets-checkout__meta">Ingresso giornaliero • QR code digitale • Accesso rapido all'evento</p>
         <div class="tickets-checkout__frame">
           <div id="eventbrite-widget-container-1989163261863"></div>
           <div class="tickets-checkout__fallback" id="eventbrite-widget-fallback" hidden>
@@ -79,12 +80,51 @@
           </div>
         </div>
         <div class="tickets-checkout__external">
-          <span>Problemi con il modulo?</span>
-          <a href="https://www.eventbrite.com/e/1989163261863" target="_blank" rel="noopener noreferrer">
-            Apri Eventbrite
+          <span>Problemi con l'acquisto?</span>
+          <a id="ticket-checkout-direct" href="https://www.eventbrite.com/e/1989163261863" target="_blank" rel="noopener noreferrer">
+            Apri il checkout direttamente su Eventbrite
           </a>
         </div>
       </div>
+    </section>
+
+    <section class="ticket-faq" aria-labelledby="ticket-faq-title">
+      <h2 id="ticket-faq-title">Domande frequenti</h2>
+
+      <details>
+        <summary>Dove ricevo il biglietto?</summary>
+        <p>Riceverai il biglietto via email dopo l'acquisto, con QR code da mostrare all'ingresso.</p>
+      </details>
+
+      <details>
+        <summary>Devo stampare il biglietto?</summary>
+        <p>No, puoi mostrarlo direttamente dallo smartphone.</p>
+      </details>
+
+      <details>
+        <summary>Posso acquistare più biglietti?</summary>
+        <p>Sì, puoi selezionare la quantità desiderata nel modulo di acquisto.</p>
+      </details>
+
+      <details>
+        <summary>Quanto costa il biglietto?</summary>
+        <p>Il prezzo aggiornato è visibile nel modulo di acquisto. Eventuali commissioni sono indicate prima del pagamento.</p>
+      </details>
+
+      <details>
+        <summary>Posso comprare anche i biglietti in loco?</summary>
+        <p>Sì, i biglietti saranno disponibili anche in loco al prezzo finale di 8€, fino ad esaurimento scorte.</p>
+      </details>
+
+      <details>
+        <summary>Ho problemi con il pagamento, cosa faccio?</summary>
+        <p>Puoi usare il pulsante <a href="#ticket-checkout-direct">“Apri il checkout direttamente su Eventbrite”</a> per completare l'acquisto direttamente sulla piattaforma.</p>
+      </details>
+
+      <details>
+        <summary>Il biglietto è rimborsabile?</summary>
+        <p>Contatta l'organizzazione a <a href="mailto:info@canavesecomics.com">info@canavesecomics.com</a> per informazioni.</p>
+      </details>
     </section>
 
   </main>
@@ -191,15 +231,14 @@
         }
 
         window.EBWidgets.createWidget({
-            // Required
+
             widgetType: 'checkout',
             eventId: '1989163261863',
             iframeContainerId: 'eventbrite-widget-container-1989163261863',
 
-            // Optional
-            iframeContainerHeight: 625,  // Widget height in pixels. Defaults to a minimum of 625px if not provided
+            iframeContainerHeight: 625,
 
-            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+            onOrderComplete: exampleCallback  
         });
       };
       script.onerror = showFallback;
