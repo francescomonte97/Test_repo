@@ -6219,9 +6219,11 @@ body.page-about .desktop-nav a[href="/about.html"] {
   display: none;
 }
 
-.tickets-checkout__loader span {
+.tickets-checkout__spinner {
+  display: block;
   width: 38px;
   height: 38px;
+  box-sizing: border-box;
   border: 4px solid rgba(3, 3, 3, 0.14);
   border-top-color: #B7337A;
   border-radius: 50%;
@@ -6372,7 +6374,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
     transform: translateX(122%);
   }
 
-  .tickets-checkout__loader span {
+  .tickets-checkout__spinner {
     animation: none;
   }
 }
