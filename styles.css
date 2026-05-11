@@ -2284,7 +2284,7 @@ body.page-info .location-map-embed iframe {
   text-align: center;
 }
 
-.biglietti-page h1 {
+.biglietti-page > h1 {
   margin: 0;
   font-family: 'Figtree', sans-serif;
   font-size: clamp(32px, 4vw, 64px);
@@ -2327,7 +2327,7 @@ body.page-biglietti .scroll-progress__bar {
   text-align: center;
 }
 
-.biglietti-page h1 {
+.biglietti-page > h1 {
   margin: 0;
   font-family: 'Figtree', sans-serif;
   font-size: clamp(32px, 4vw, 64px);
@@ -2433,7 +2433,7 @@ body.page-biglietti .scroll-progress__bar {
     padding-bottom: 72px;
   }
 
-  .biglietti-page h1 {
+  .biglietti-page > h1 {
     font-size: 24px;
   }
 
@@ -3635,7 +3635,7 @@ body.page-about .about-hero {
 body.page-info .info-hero h1,
 body.page-activity .activity-hero h1,
 body.page-about .about-hero h1,
-body.page-biglietti .biglietti-page h1 {
+body.page-biglietti .biglietti-page > h1 {
   margin-top: 0 !important;
   margin-bottom: 44px !important;
   font-family: 'Figtree', sans-serif !important;
@@ -3644,6 +3644,10 @@ body.page-biglietti .biglietti-page h1 {
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
+}
+
+body.page-biglietti .biglietti-page {
+  padding-top: 104px !important;
 }
 
 @media (max-width: 760px) {
@@ -3657,9 +3661,13 @@ body.page-biglietti .biglietti-page h1 {
   body.page-info .info-hero h1,
   body.page-activity .activity-hero h1,
   body.page-about .about-hero h1,
-  body.page-biglietti .biglietti-page h1 {
+  body.page-biglietti .biglietti-page > h1 {
     font-size: 24px !important;
     margin-bottom: 32px !important;
+  }
+
+  body.page-biglietti .biglietti-page {
+    padding-top: 88px !important;
   }
 }
 
@@ -6287,123 +6295,11 @@ body.page-about .desktop-nav a[href="/about.html"] {
   z-index: 2;
   width: min(100%, 900px);
   margin: 0 auto;
-  padding: clamp(5.4rem, 9vw, 7.15rem) 0 clamp(0.85rem, 2vw, 1.15rem);
+  padding: 0 0 clamp(0.85rem, 2vw, 1.15rem);
   text-align: center;
 }
 
-.tickets-checkout__logo-shapes {
-  position: absolute;
-  inset: -0.35rem 0 auto;
-  z-index: 3;
-  height: clamp(76px, 9.2vw, 118px);
-  overflow: visible;
-  pointer-events: none;
-}
-
-.tickets-checkout__logo-shape {
-  position: absolute;
-  z-index: 1;
-  width: clamp(56px, 6.8vw, 90px);
-  height: auto;
-  overflow: visible;
-  color: var(--ticket-ink, #111111);
-  filter: drop-shadow(0 7px 0 rgba(3, 3, 3, 0.1));
-  pointer-events: none;
-  transform-origin: center;
-  animation: ticketLogoShapeFloat 7.5s ease-in-out infinite;
-}
-
-.tickets-checkout__logo-shape use {
-  fill: currentColor;
-}
-
-.tickets-checkout__logo-shape--star {
-  left: 0;
-  top: 2px;
-  width: clamp(72px, 8vw, 106px);
-  color: var(--ticket-orange, #E85D24);
-  animation-name: ticketLogoShapeStarFloat;
-  animation-duration: 8.4s;
-}
-
-.tickets-checkout__logo-shape--triangle {
-  left: 73%;
-  top: 30px;
-  width: clamp(50px, 5.6vw, 74px);
-  color: var(--ticket-cyan, #48B5CC);
-  animation-name: ticketLogoShapeTriangleFloat;
-  animation-duration: 7.2s;
-  animation-delay: -1.2s;
-}
-
-.tickets-checkout__logo-shape--diamond {
-  left: 41%;
-  top: 0;
-  width: clamp(52px, 5.8vw, 78px);
-  color: var(--ticket-magenta, #9E235F);
-  animation-name: ticketLogoShapeDiamondFloat;
-  animation-duration: 6.8s;
-  animation-delay: -2s;
-}
-
-.tickets-checkout__logo-shape--drop {
-  left: 55%;
-  top: 40px;
-  width: clamp(40px, 4.7vw, 62px);
-  color: var(--ticket-cream, #F7EDAC);
-  stroke: var(--ticket-ink, #111111);
-  stroke-width: 20;
-  animation-name: ticketLogoShapeDropFloat;
-  animation-duration: 7.8s;
-  animation-delay: -3.1s;
-}
-
-.tickets-checkout__logo-shape--trophy {
-  left: 15%;
-  top: -8px;
-  width: clamp(76px, 8.4vw, 110px);
-  color: var(--ticket-cream, #F7EDAC);
-  stroke: var(--ticket-ink, #111111);
-  stroke-width: 14;
-  animation-name: ticketLogoShapeTrophyFloat;
-  animation-duration: 8.8s;
-  animation-delay: -1.8s;
-}
-
-.tickets-checkout__logo-shape--hand {
-  right: 0;
-  left: auto;
-  top: -10px;
-  width: clamp(78px, 8.8vw, 116px);
-  color: var(--ticket-pink, #F5D7E6);
-  stroke: var(--ticket-ink, #111111);
-  stroke-width: 14;
-  animation-name: ticketLogoShapeHandFloat;
-  animation-duration: 9.2s;
-  animation-delay: -3.6s;
-}
-
-.tickets-checkout__logo-shape--bottom-star {
-  left: 28%;
-  top: 46px;
-  width: clamp(42px, 4.8vw, 64px);
-  color: var(--ticket-cyan, #48B5CC);
-  animation-name: ticketLogoShapeBottomStarFloat;
-  animation-duration: 6.9s;
-  animation-delay: -4.3s;
-}
-
-.tickets-checkout__logo-shape--arch {
-  left: 63%;
-  top: -12px;
-  width: clamp(66px, 7.3vw, 94px);
-  color: var(--ticket-orange, #E85D24);
-  animation-name: ticketLogoShapeArchFloat;
-  animation-duration: 8.1s;
-  animation-delay: -5s;
-}
-
-.tickets-checkout h2 {
+.tickets-checkout__title {
   position: relative;
   z-index: 2;
   display: grid;
@@ -6417,7 +6313,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
   text-transform: uppercase;
 }
 
-.tickets-checkout h2::before {
+.tickets-checkout__title::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -6433,19 +6329,19 @@ body.page-about .desktop-nav a[href="/about.html"] {
   transform: translate(-50%, -50%) rotate(-1deg);
 }
 
-.tickets-checkout h2 span {
+.tickets-checkout__title span {
   display: inline-block;
   width: fit-content;
   margin: 0 auto;
 }
 
-.tickets-checkout h2 span:first-child {
+.tickets-checkout__title span:first-child {
   padding: 0 0.08em;
   text-shadow: 0 5px 0 rgba(3, 3, 3, 0.08);
   transform: rotate(0.7deg);
 }
 
-.tickets-checkout h2 span:last-child {
+.tickets-checkout__title span:last-child {
   padding: 0.06em 0.16em 0.1em;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
@@ -6706,41 +6602,7 @@ body.page-about .desktop-nav a[href="/about.html"] {
 
 @media (max-width: 860px) {
   .tickets-checkout__intro {
-    padding-top: clamp(4.9rem, 11vw, 6rem);
-  }
-
-  .tickets-checkout__logo-shapes {
-    height: clamp(70px, 11vw, 98px);
-  }
-
-  .tickets-checkout__logo-shape {
-    width: clamp(48px, 8vw, 72px);
-  }
-
-  .tickets-checkout__logo-shape--star {
-    left: 1%;
-  }
-
-  .tickets-checkout__logo-shape--trophy {
-    left: 18%;
-  }
-
-  .tickets-checkout__logo-shape--diamond {
-    left: 42%;
-  }
-
-  .tickets-checkout__logo-shape--arch {
-    left: 62%;
-  }
-
-  .tickets-checkout__logo-shape--hand {
-    right: 1%;
-  }
-
-  .tickets-checkout__logo-shape--triangle,
-  .tickets-checkout__logo-shape--drop,
-  .tickets-checkout__logo-shape--bottom-star {
-    display: none;
+    padding-top: 0;
   }
 }
 
@@ -6751,65 +6613,23 @@ body.page-about .desktop-nav a[href="/about.html"] {
   }
 
   .tickets-checkout__intro {
-    padding: clamp(4.45rem, 19vw, 5.65rem) 0 0.72rem;
+    padding: 0 0 0.72rem;
   }
 
-  .tickets-checkout__logo-shapes {
-    display: block;
-    inset: -0.55rem 0 auto;
-    height: clamp(70px, 19vw, 86px);
-    overflow: visible;
-  }
-
-  .tickets-checkout__logo-shape {
-    filter: drop-shadow(0 4px 0 rgba(3, 3, 3, 0.1));
-  }
-
-  .tickets-checkout__logo-shape--star {
-    left: 2%;
-    top: 14px;
-    width: clamp(40px, 12vw, 48px);
-  }
-
-  .tickets-checkout__logo-shape--trophy {
-    left: 24%;
-    top: 0;
-    width: clamp(46px, 13.6vw, 56px);
-  }
-
-  .tickets-checkout__logo-shape--arch {
-    left: 55%;
-    top: 3px;
-    width: clamp(42px, 12.6vw, 52px);
-  }
-
-  .tickets-checkout__logo-shape--hand {
-    right: 2%;
-    top: 6px;
-    width: clamp(48px, 14vw, 58px);
-  }
-
-  .tickets-checkout__logo-shape--triangle,
-  .tickets-checkout__logo-shape--diamond,
-  .tickets-checkout__logo-shape--drop,
-  .tickets-checkout__logo-shape--bottom-star {
-    display: none;
-  }
-
-  .tickets-checkout h2 {
+  .tickets-checkout__title {
     max-width: 23ch;
     font-size: clamp(1.16rem, 5.55vw, 1.68rem);
     line-height: 1.08;
     -webkit-text-size-adjust: 100%;
   }
 
-  .tickets-checkout h2::before {
+  .tickets-checkout__title::before {
     width: 96%;
     height: 76%;
     border-width: 1px;
   }
 
-  .tickets-checkout h2 span:last-child {
+  .tickets-checkout__title span:last-child {
     border-width: 1px;
     border-radius: 4px;
     box-shadow: 0 4px 0 rgba(3, 3, 3, 0.12);
@@ -6920,94 +6740,6 @@ body.page-about .desktop-nav a[href="/about.html"] {
   }
 }
 
-@keyframes ticketLogoShapeStarFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(-13deg) scale(1.06);
-  }
-
-  45% {
-    transform: translate3d(4px, -8px, 0) rotate(-7deg) scale(1.1);
-  }
-}
-
-@keyframes ticketLogoShapeTriangleFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(7deg) scale(1);
-  }
-
-  50% {
-    transform: translate3d(-4px, -9px, 0) rotate(12deg) scale(1.06);
-  }
-}
-
-@keyframes ticketLogoShapeDiamondFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(13deg) scale(1);
-  }
-
-  48% {
-    transform: translate3d(3px, -10px, 0) rotate(7deg) scale(1.08);
-  }
-}
-
-@keyframes ticketLogoShapeDropFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(-14deg) scale(1);
-  }
-
-  52% {
-    transform: translate3d(-3px, -8px, 0) rotate(-20deg) scale(1.1);
-  }
-}
-
-@keyframes ticketLogoShapeTrophyFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(6deg) scale(1);
-  }
-
-  46% {
-    transform: translate3d(3px, -11px, 0) rotate(0deg) scale(1.06);
-  }
-}
-
-@keyframes ticketLogoShapeHandFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(-7deg) scale(1);
-  }
-
-  50% {
-    transform: translate3d(-4px, -10px, 0) rotate(-1deg) scale(1.05);
-  }
-}
-
-@keyframes ticketLogoShapeBottomStarFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(18deg) scale(1);
-  }
-
-  44% {
-    transform: translate3d(2px, -8px, 0) rotate(26deg) scale(1.12);
-  }
-}
-
-@keyframes ticketLogoShapeArchFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(-4deg) scale(1);
-  }
-
-  54% {
-    transform: translate3d(-3px, -9px, 0) rotate(-9deg) scale(1.06);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .tickets-checkout__burst span {
     animation: none;
@@ -7025,10 +6757,6 @@ body.page-about .desktop-nav a[href="/about.html"] {
   }
 
   .tickets-checkout__loader::after {
-    animation: none;
-  }
-
-  .tickets-checkout__logo-shape {
     animation: none;
   }
 }
