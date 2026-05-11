@@ -571,14 +571,14 @@ if (aboutRevealItems.length) {
 
   const createTeamLogoPatternSet = (photoIndex) => {
     const patterns = [];
-    const step = 13.5;
-    const gridSize = 9;
-    const gridOffset = -6;
+    const step = 24;
+    const gridSize = 5;
+    const gridOffset = -4;
 
     for (let row = 0; row < gridSize; row += 1) {
       for (let col = 0; col < gridSize; col += 1) {
         const partIndex = (row * 3 + col + photoIndex * 2) % logoPatternGridParts.length;
-        const size = 9.2 + ((row + col + photoIndex) % 3) * 0.55;
+        const size = 6.8 + ((row + col + photoIndex) % 3) * 0.35;
         const cellX = gridOffset + col * step;
         const cellY = gridOffset + row * step;
         const rotate = -7 + ((row * 7 + col * 5 + photoIndex * 3) % 15);
@@ -602,20 +602,12 @@ if (aboutRevealItems.length) {
 
   const createTeamLogoEdgePatternSet = (photoIndex) => {
     const placements = [
-      { x: 3, y: 3, size: 10.2 },
-      { x: 22, y: 2, size: 9.8 },
-      { x: 43, y: 3, size: 9.5 },
-      { x: 66, y: 2, size: 10 },
-      { x: 85, y: 8, size: 9.2 },
-      { x: 4, y: 26, size: 9.8 },
-      { x: 86, y: 31, size: 9.5 },
-      { x: 3, y: 52, size: 10 },
-      { x: 87, y: 55, size: 9.4 },
-      { x: 6, y: 78, size: 9.6 },
-      { x: 28, y: 86, size: 10 },
-      { x: 51, y: 87, size: 9.4 },
-      { x: 73, y: 84, size: 9.8 },
-      { x: 87, y: 76, size: 9.2 },
+      { x: 6, y: 8, size: 7 },
+      { x: 78, y: 12, size: 6.8 },
+      { x: 8, y: 45, size: 6.8 },
+      { x: 86, y: 48, size: 6.6 },
+      { x: 18, y: 84, size: 6.8 },
+      { x: 72, y: 82, size: 6.6 },
     ];
 
     return placements.map((placement, placementIndex) => ({
@@ -766,8 +758,12 @@ if (aboutRevealItems.length) {
   };
 
   const selectTeamLogoPatterns = (candidatePatterns, isOverPinkArea) => {
-    const targetCount = 48;
-    const minCount = 36;
+    const targetCount = 14;
+    const minCount = 10;
+    const centerBias = (pattern) => {
+      const center = getTeamPatternCenter(pattern);
+      return Math.abs(center.x - 50) * 0.008 + Math.abs(center.y - 50) * 0.006;
+    };
     const rankedPatterns = candidatePatterns
       .map((pattern, order) => ({
         pattern,
@@ -779,7 +775,7 @@ if (aboutRevealItems.length) {
           return a.pattern.isPriorityPattern ? -1 : 1;
         }
 
-        return a.pinkRatio - b.pinkRatio || a.order - b.order;
+        return (a.pinkRatio + centerBias(a.pattern)) - (b.pinkRatio + centerBias(b.pattern)) || a.order - b.order;
       });
 
     const selectedPatterns = [];
@@ -787,7 +783,7 @@ if (aboutRevealItems.length) {
     rankedPatterns.forEach(({ pattern }) => {
       if (!pattern.forceVisible) return;
       if (selectedPatterns.length >= targetCount) return;
-      if (!canPlaceTeamPattern(pattern, selectedPatterns, 0.4)) return;
+      if (!canPlaceTeamPattern(pattern, selectedPatterns, 6.2)) return;
 
       selectedPatterns.push(pattern);
     });
@@ -803,14 +799,14 @@ if (aboutRevealItems.length) {
       });
     };
 
-    placePatterns(0.04, 0.8);
+    placePatterns(0.04, 6);
 
     if (selectedPatterns.length < minCount) {
-      placePatterns(0.18, 0.45);
+      placePatterns(0.18, 4.8);
     }
 
     if (selectedPatterns.length < minCount) {
-      placePatterns(0.34, 0.2);
+      placePatterns(0.34, 3.6);
     }
 
     if (selectedPatterns.length < minCount) {
@@ -819,7 +815,7 @@ if (aboutRevealItems.length) {
         if (!pattern.isPriorityPattern && !pattern.isEdgePattern) return;
         if (pinkRatio > 0.55) return;
         if (selectedPatterns.includes(pattern)) return;
-        if (!canPlaceTeamPattern(pattern, selectedPatterns, 0)) return;
+        if (!canPlaceTeamPattern(pattern, selectedPatterns, 2.4)) return;
 
         selectedPatterns.push(pattern);
       });
