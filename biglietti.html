@@ -295,7 +295,7 @@
   <link rel="icon" href="/favicon_png/favicon192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon_png/favicon512.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/favicon_png/favicon192.png" />
-  <link rel="stylesheet" href="styles.css?v=20260511-tickets-title-up" />
+  <link rel="stylesheet" href="styles.css?v=20260511-tickets-top-clean" />
 </head>
 
 <body class="page-biglietti">
@@ -318,40 +318,12 @@
   </header>
 
   <main class="biglietti-page">
-    <h1>Biglietti</h1>
-
     <section class="tickets-checkout" aria-labelledby="tickets-checkout-title">
       <div class="tickets-checkout__intro">
-        <div class="tickets-checkout__logo-shapes" aria-hidden="true">
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--star" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#top-star"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--triangle" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#triangle"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--diamond" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#diamond"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--drop" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#drop"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--trophy" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#trophy"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--hand" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#hand"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--bottom-star" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#bottom-star"></use>
-          </svg>
-          <svg class="tickets-checkout__logo-shape tickets-checkout__logo-shape--arch" viewBox="0 0 1024 984" focusable="false">
-            <use href="assets/vectors/logo.svg#arch"></use>
-          </svg>
-        </div>
-        <h2 id="tickets-checkout-title">
+        <h1 class="tickets-checkout__title" id="tickets-checkout-title">
           <span>entra nel</span>
           <span>Canavese Comics</span>
-        </h2>
+        </h1>
         <aside class="tickets-countdown" aria-label="Countdown all'inizio di Canavese Comics">
           <span class="tickets-countdown__label">Inizio evento</span>
           <span class="tickets-countdown__item"><strong class="tickets-countdown__value" data-countdown-days><span>0</span></strong> giorni</span>
@@ -613,9 +585,10 @@
             eventId: '1989163261863',
             iframeContainerId: 'eventbrite-widget-container-1989163261863',
 
+          
             iframeContainerHeight: 625,  
 
-            onOrderComplete: exampleCallback
+            onOrderComplete: exampleCallback  
         });
 
         window.setTimeout(hideLoader, checkoutLoaderDelay);
