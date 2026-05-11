@@ -513,6 +513,28 @@ if (activityItems.length) {
 const aboutRevealItems = document.querySelectorAll(".team-member, .helper-card");
 
 if (aboutRevealItems.length) {
+  const teamPhotos = document.querySelectorAll(".team-member__photo");
+
+  teamPhotos.forEach((photo) => {
+    const img = photo.querySelector("img");
+    if (!img) return;
+
+    const markPhotoLoaded = () => {
+      photo.classList.remove("is-loading");
+      photo.classList.add("is-loaded");
+    };
+
+    photo.classList.add("is-loading");
+
+    if (img.complete && img.naturalWidth > 0) {
+      markPhotoLoaded();
+      return;
+    }
+
+    img.addEventListener("load", markPhotoLoaded, { once: true });
+    img.addEventListener("error", markPhotoLoaded, { once: true });
+  });
+
   const logoPatternSource = "assets/vectors/logo_animation.svg";
   const logoPatternParts = {
     triangle: { x: 813, y: 327, width: 143, height: 176, pad: 18 },
@@ -811,7 +833,7 @@ if (aboutRevealItems.length) {
       if (photo.querySelector(".team-logo-pattern")) return;
 
       const img = photo.querySelector("img");
-      if (img && !img.complete) {
+      if (img && (!img.complete || img.naturalWidth === 0)) {
         img.addEventListener("load", () => addTeamLogoPatterns(logoPathsById), { once: true });
         return;
       }
@@ -939,13 +961,19 @@ if (aboutRevealItems.length) {
       addTeamLogoPatterns();
     });
 
-  window.addEventListener("load", () => {
+  const revealAboutItems = () => {
     aboutRevealItems.forEach((item, i) => {
       setTimeout(() => {
         item.classList.add("is-visible");
       }, i * 85);
     });
-  });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", revealAboutItems, { once: true });
+  } else {
+    revealAboutItems();
+  }
 }
 
 (() => {
